@@ -10,7 +10,7 @@ public abstract class StringFormatter {
     public StringFormatter() {
         this.limit = 40;
     }
-
+    
     /**
      * It receives a text and should format this text
      *
