@@ -55,41 +55,92 @@ public class IdwallFormatter extends StringFormatter {
 				
 				//Ainda cabe w1 sem estourar o limite
 				if (line.length() + w1.length() <= limit) {
-					System.out.println(line + w1);
-					formattedString += line + w1 + "\n";
+					if (justify)
+						formattedString += justifyString(line + w1);
+					else
+						formattedString += line + w1 + "\n";
 				}
 				else {
-					System.out.println(line+ "\n" + w1);
-					formattedString += line + "\n" + w1 + "\n";
+					if (justify){
+						formattedString += justifyString(line); 
+						formattedString += justifyString(w1);
+					}
+					else{
+						formattedString += line + "\n"; 
+						formattedString += w1 + "\n";
+					}
 				}
 
 				line = "";
-				whitespaces = 0;			
 			}
     		
     		//DEVE FAZER LIMPEZA DA LINHA DE TRABALHO
     		if (line.length() + word.length() > limit){
-    			System.out.println(line);
-    			formattedString += line + "\n";     			
+    			if (justify){
+    				formattedString += justifyString(line);
+    			}
+    			else{
+    				formattedString += line + "\n";	
+    			}
+    			     			
     			line = "";
-    			whitespaces = 0;
     		}
     		
     		line += word + " ";
-    		whitespaces++;
     	}
     	
     	if (!line.isEmpty()){
-    		System.out.println(line);
-    		formattedString += line + "\n";	
+    		if (justify){
+				formattedString += justifyString(line);
+			}
+			else{
+				formattedString += line + "\n";	
+			}	
     	}
     	 
     	return formattedString;
     }
     
-    private String justify(String text){
+    private String justifyString(String text){
     	
+    	String[] words = text.split(" ");
+    	String justifiedString = words[0];
     	
-    	return "";
+    	int diff = limit - text.trim().length();
+    	int whitespaces = words.length - 1;
+    	int singles = 0;
+    	int rounds = 0;
+    	
+    	if (whitespaces > 0){
+    		singles = diff % whitespaces;
+        	rounds = diff  / whitespaces; 	
+    	}
+    	
+    	for (int i = 1; i < words.length; i++){
+    		
+    		if (singles > 0){
+    			justifiedString += " ";
+    			singles--;
+    		}
+    		
+    		for (int j = 0; j < rounds;j++){
+    			justifiedString += " ";
+    		}
+    		
+    		justifiedString += " " + words[i];
+    	}
+    	
+    	//OLD STYLE DEBUG
+//    	System.out.println("===========================================");
+//    	System.out.println("LINE: " + text);
+//    	System.out.println("LIMIT: " + limit);
+//    	System.out.println("LENGTH: " + text.trim().length());
+//    	System.out.println("WORDS: " + words.length);
+//    	System.out.println("SPACES: " + whitespaces);
+//    	System.out.println("SINGLES: " + singles);
+//    	System.out.println("ROUNDS: " + rounds);
+//    	System.out.println("RESULT: " + justifiedString);
+    	
+    	return justifiedString + "\n";
     }
 }

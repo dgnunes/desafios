@@ -47,9 +47,10 @@ public class Main {
         String outputText = sf.format(text);
         
         // Print output text
-//        System.out.println("Output: ");
-//        System.out.println(outputText);     
+        System.out.println("Output: ");
+        System.out.println(outputText);     
 
+        /* SECOND EXAMPLE
         String text2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo neque sed ante ornare dignissim. Morbi ac sollicitudin ipsum. Vestibulum lobortis sollicitudin sapien et placerat. Curabitur semper pharetra nunc, non porta justo lobortis sit amet. Donec cursus volutpat tortor sit amet semper. Pellentesque a libero quis nibh rhoncus pretium. Suspendisse iaculis tincidunt lorem vitae porta. Duis non est eleifend, semper tellus id, sodales dolor.\n\nCurabitur gravida, elit in malesuada hendrerit, nisl mi malesuada erat, efficitur elementum metus purus nec risus. In hac habitasse platea dictumst. Fusce hendrerit ipsum sed imperdiet lacinia. Sed et maximus eros, eu placerat mauris. Vestibulum sapien elit, placerat vel orci quis, cursus aliquam dolor. Pellentesque venenatis libero purus, sit amet dictum velit molestie at. Nulla eget fringilla ante. Pellentesque pharetra justo erat, sit amet fringilla libero pulvinar non. Vivamus congue augue a ante auctor euismod. Pellentesque dictum sagittis nibh eu venenatis.\n\nDonec ac tempus eros. Curabitur commodo sit amet lectus ac molestie. Pellentesque efficitur enim eros, at blandit ipsum lobortis vitae. Sed sed sollicitudin sem, et fermentum risus. Duis iaculis egestas consequat. Duis ac ullamcorper nulla, in congue sem. Nam sed ex vehicula, congue est vel, semper nibh. Aliquam tempor tincidunt diam, vestibulum pellentesque sem pretium quis. Sed nulla turpis, rutrum vel risus et, sodales laoreet dui. Quisque velit dui, imperdiet ac risus at, dictum egestas tellus. Etiam dictum urna mollis ipsum consectetur, a luctus turpis posuere. Vivamus auctor vitae dui in laoreet. In elementum, mi eget pellentesque pretium, odio arcu suscipit elit, quis dignissim est est sit amet odio. Donec feugiat cursus nibh, quis finibus lorem.";
 
         // Print input data
@@ -63,7 +64,8 @@ public class Main {
         outputText = sf.format(text2);
         
         // Print output text
-        //System.out.println("Output: ");
-        //System.out.println(outputText);
+        System.out.println("Output: ");
+        System.out.println(outputText);
+        */
     }
 }
