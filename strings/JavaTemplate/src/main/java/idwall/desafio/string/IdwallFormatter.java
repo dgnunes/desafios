@@ -33,15 +33,19 @@ public class IdwallFormatter extends StringFormatter {
      *
      * @param text
      * @return
+     * @throws Exception 
      */
     @Override
-    public String format(String text) {
+    public String format(String text) throws Exception {
     	String formattedString = "";    	
     	String[] words = text.split(" ");
     	
     	int whitespaces = 0;
     	String line = "";
     	for (String word:words){
+    		
+    		if (word.length() > limit)
+    			throw new Exception ("Palavra " + word + " é maior do que o limite de " + limit + " caracteres.");
     		
     		//TRATAMENTO DE CLRF
 			while (word.contains("\n")){

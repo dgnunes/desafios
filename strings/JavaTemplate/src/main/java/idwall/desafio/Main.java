@@ -15,7 +15,7 @@ public class Main {
     private static final Integer DEFAULT_LIMIT = 40;
     private static final Boolean DEFAULT_JUSTIFY = true;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         String text = DEFAULT_INPUT_TEXT;
         Integer limit = DEFAULT_LIMIT;
         Boolean justify = DEFAULT_JUSTIFY;
@@ -25,16 +25,20 @@ public class Main {
                 break;
             case 2:
                 text = args[0];
-                limit = Integer.parseInt(args[1]);
-                break;
+            	limit = Integer.parseInt(args[1]);                
+            	break;
             case 3:
                 text = args[0];
-                limit = Integer.parseInt(args[1]);
+                limit = Integer.parseInt(args[1]);                
                 justify = Boolean.parseBoolean(args[2]);
                 break;
+                
         }
 
+    	if (limit == null || limit <= 0 || limit > Integer.MAX_VALUE)
+        	throw new Exception ("Número de caracteres por linha inválido. O valor deve ser entre 1 e " + Integer.MAX_VALUE);
 
+    	
         // Print input data
         System.out.println("Inputs: ");
         System.out.println("Text: " + text);

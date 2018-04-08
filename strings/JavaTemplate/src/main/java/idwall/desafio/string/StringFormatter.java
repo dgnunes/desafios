@@ -16,6 +16,7 @@ public abstract class StringFormatter {
      *
      * @param text
      * @return
+     * @throws Exception 
      */
-    public abstract String format(String text);
+    public abstract String format(String text) throws Exception;
 }
