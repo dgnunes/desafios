@@ -6,8 +6,20 @@ package com.idwall.RedditCrawler;
  */
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws InterruptedException
     {
-        System.out.println( "Hello World!" );
+       
+    	IdwallRedditCrawler teste = new IdwallRedditCrawler ("brazil;programming;dogs;brazil;cats");
+    	teste.start();
+    	
+    	while (!teste.isCrawlingFinished()){
+    		Thread.sleep(1000);
+    		
+    	}
+    	
+    	System.out.println("TERMINOU");
+
+    	System.out.println(teste.getResult());
+    	
     }
 }

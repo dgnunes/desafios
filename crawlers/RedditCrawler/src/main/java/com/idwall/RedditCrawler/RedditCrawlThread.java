@@ -26,10 +26,18 @@ public class RedditCrawlThread extends Thread {
 		WebDriver driver = new HtmlUnitDriver();
 		driver.get(PRE_SUBREDDIT_URL + this.subReddit+ POST_SUBREDDIT_URL);
 		
-		List<WebElement> posts = driver.findElements(By.className("linkflair"));
+		//List<WebElement> posts = driver.findElements(By.className("linkflair"));
+		List<WebElement> posts = driver.findElements(By.className("thing"));
 		
+		int votes = 0;
 		for(WebElement post:posts){
-			int votes = Integer.parseInt(post.findElement(By.className("score unvoted")).getText());
+			try {
+				votes = Integer.parseInt(post.findElement(By.className("score unvoted")).getText());
+			
+			}
+			catch (NumberFormatException e) {
+				continue;
+			}
 			
 			if (votes >= 5000) {
 				//número de upvotes, subreddit, título da thread, link para os comentários da thread, link da thread
